@@ -1,13 +1,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-            >
+      metal:define-macro="master">
    <head>
-      <title tal:content="context/title"></title>
+      <title tal:content="context.title|nothing"></title>
    </head>
    <body>
-      <metal:slot define-slot="body">
-
-      </metal:slot>
+      <metal:slot define-slot="body"/>
    </body>
 </html>

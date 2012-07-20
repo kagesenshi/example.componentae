@@ -1,13 +1,13 @@
-from componentae.view import View
+import componentae.api as cae
 import grokcore.component as grok
 from componentae.interfaces import IApplication, IContext
 
-class TestView(View):
+class TestView(cae.View):
     grok.name('index')
     grok.context(IApplication)
-    template = 'index.pt'
+    cae.template('index.pt')
 
-class MainTemplate(View):
+class MainTemplate(cae.View):
     grok.name('main_template')
     grok.context(IContext)
-    template = 'main_template.pt'
+    cae.template('main_template.pt')
