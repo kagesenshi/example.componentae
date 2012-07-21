@@ -2,15 +2,12 @@
    xmlns="http://www.w3.org/1999/xhtml"
    xmlns:tal="http://xml.zope.org/namespaces/tal"
    xmlns:metal="http://xml.zope.org/namespaces/metal"
-   metal:use-macro="views['main_template'].macros.master">
+   metal:use-macro="views['main_template'].template.macros.master">
 
    <body>
-   <div metal:fill-slot="body">
-      <h1>Hi there ..</h1>
-      <p>this page is still under development, (still playing around with
-      developing a cms on AppEngine)..</p>
-      <p>If you are looking for the blog, click here: <a
-         href="http://blog.kagesenshi.org">http://blog.kagesenshi.org</a></p>
+      <div metal:fill-slot="body">
+         <h1 tal:content="context.title|nothing"></h1>
+         <div tal:content="structure context.bodytext|nothing"></div>
    </div>
    </body>
 </html>

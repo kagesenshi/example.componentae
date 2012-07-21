@@ -1,0 +1,43 @@
+<html
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:tal="http://xml.zope.org/namespaces/tal"
+   xmlns:metal="http://xml.zope.org/namespaces/metal"
+   metal:use-macro="views['main_template'].template.macros.master">
+
+   <head>
+      <metal:slot fill-slot="javascript_head_slot">
+         <script type="text/javascript"
+                 src="/static/tiny_mce/jquery.tinymce.js"></script>
+         <script>
+   $(document).ready(function() {
+      $('textarea.tinymce').tinymce({
+         // Location of TinyMCE script
+         script_url : '/static/tiny_mce/tiny_mce.js',
+
+         // General options
+         theme : "advanced",
+         plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",
+
+         // Theme options
+         theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,formatselect,|bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview",
+         theme_advanced_resizing : true,
+         content_css : "//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"
+      })
+   })
+         </script>
+      </metal:slot>
+   </head>
+
+<body>
+   <div metal:fill-slot="body">
+      <form method="POST" class="well">
+         <label>ID</label><input name="name"/>
+         <label>Title</label><input name="title"/>
+         <label>Body Text</label>
+         <textarea name="bodytext" class="tinymce"></textarea><br/>
+         <button type="submit" class="btn">Submit</button>
+      </form>
+   </div>
+</body>
+
+</html>

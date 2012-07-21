@@ -17,15 +17,18 @@
             <div class="navbar-inner">
                <div class="container">
                   <ul class="nav">
-                     <li><a href="#">Hello</a></li>
-                  </ul>
+                     <li>
+                        <a href="/">Home</a>
+                     </li>
+                     <li tal:repeat="item views['navigation-bar'].values()">
+                        <a tal:attributes="href item.absolute_url()"
+                           tal:content="item.title"></a>
+                     </li>
                </div>
             </div>
          </div>
          <header>
-            <div class="row" id="header" style="margin-top:50px">
-            helloworld
-            </div>
+            <div class="row" id="header" style="margin-top:50px">&nbsp;</div>
          </header>
          <div class="row" id="body" metal:define-slot="body">
          </div>         
